@@ -1,30 +1,21 @@
 package pl.wsiz.iid6.gr2.patientservice.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import pl.wsiz.iid6.gr2.patientservice.service.PatientService;
 
 @Controller
 @RequestMapping(value = "/patient")
 public class PatientController {
-    @GetMapping(path = "/hej")
-    @ResponseBody
-    public String witaj(){
-        return "Hello world !";
-    }
-
-    @GetMapping(path = "/start")
-    @ResponseBody
-    public String start(){
-        return "We are starting here";
-    }
+    @Autowired
+    private PatientService patientService;
 
     @GetMapping(path = "/wiek")
-    @ResponseBody public String wiek(@RequestParam int wiek) {
-        return "wiek:" + wiek;
-    }
+    @ResponseBody
     public String zycie(@RequestParam int datayrodz ,@RequestParam int ostatniaData,@RequestParam boolean zyjeOrnie) {
         if (zyjeOrnie) {
             return "jescie zyje";
@@ -34,4 +25,15 @@ public class PatientController {
         }
     }
 
+    @GetMapping(path = "/findById")
+    @ResponseBody
+    public String patientById(@RequestParam Long Id){
+        return (patientService.findById(Id)).toString();
+    }
+
+    @GetMapping(path = "/findByLN")
+    @ResponseBody
+    public String patientByLastName(@RequestParam String lastName){
+        return patientService.findByLastName(lastName);
+    }
 }

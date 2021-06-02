@@ -17,6 +17,20 @@ public class Osoba {
     // "k" dla kobiet oraz "m" dla mezczyzn
     private String plec;
 
+    public Osoba(String imie, String nazwisko, String pesel) {
+        this.imie = imie;
+        this.nazwisko = nazwisko;
+        this.pesel = pesel;
+    }
+
+    public Osoba(String imie, String nazwisko) {
+        this.imie = imie;
+        this.nazwisko = nazwisko;
+    }
+
+    public Osoba() {
+    }
+
     public int getWiek(){
         return Period.between(this.dataurodzenia, LocalDate.now()).getYears();
     }
