@@ -31,4 +31,9 @@ public class PatientService {
 
         return res.toString();
     }
+
+    public List<PatientEntity> findAll() {
+        List<PatientEntity> rs = patientRepository.findAll();
+        return rs;
+    }
 }
