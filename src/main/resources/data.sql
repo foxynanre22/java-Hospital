@@ -1,6 +1,7 @@
 DROP TABLE IF EXISTS patient;
+DROP TABLE IF EXISTS lek;
 
-CREATE TABLE patient (
+CREATE TABLE IF NOT EXISTS patient (
 ID INT AUTO_INCREMENT PRIMARY KEY,
 FIRST_NAME VARCHAR(250) NOT NULL,
 LAST_NAME VARCHAR(250) NOT NULL,
@@ -12,3 +13,18 @@ INSERT INTO patient (FIRST_NAME, LAST_NAME, PESEL, NR_UBEZPIECZENIE) VALUES
     ('Jakub', 'Makota', '84061146758', '4534'),
     ('Ola', 'Dom', '91070476338', '4343'),
     ('Jan', 'Kowalski', '86111175888', '5494');
+
+
+CREATE TABLE lek (
+ID INT AUTO_INCREMENT PRIMARY KEY,
+NAME VARCHAR(250) NOT NULL,
+PRODUCENT VARCHAR(250) NOT NULL,
+ILOSC INT NOT NULL);
+
+INSERT INTO lek (NAME, PRODUCENT, ILOSC) VALUES
+    ('Canesten', 'Bayer', 123),
+    ('ZzzQuil', 'Procter & Gamble', 2000),
+    ('Seni', 'TZMO SA', 0),
+    ('Fenistil', 'GlaxoSmithKline', 988),
+    ('Otrivin', 'GlaxoSmithKline', 2332),
+    ('Potazek', 'TZMO SA', 24);

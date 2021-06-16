@@ -874,3 +874,6 @@ select patientent0_.id as id1_0_, patientent0_.first_name as first_na2_0_, patie
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:832)
+2021-06-16 13:35:25 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "LEK" not found; SQL statement:
+INSERT INTO lek (NAME, PRODUCENT, ILOSC) VALUES ('Canesten', 'Bayer', 123), ('ZzzQuil', 'Procter & Gamble', 2000), ('Seni', 'TZMO SA', 0), ('Fenistil', 'GlaxoSmithKline', 988), ('Otrivin', 'GlaxoSmithKline', 2332), ('Potazek', 'TZMO SA', 24) [42102-200]
