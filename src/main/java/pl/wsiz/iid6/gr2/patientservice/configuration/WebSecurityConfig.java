@@ -28,7 +28,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/leki/**", "/api/**").hasRole("USER")
                 .antMatchers("/h2").hasRole("ADMIN")
                 .anyRequest().authenticated() .and() .formLogin()
-                .loginPage("/login") .permitAll() .and() .logout()
+                .loginPage("/login") .permitAll().defaultSuccessUrl("/leki/all", true)
+                .and() .logout()
                 .logoutUrl("/logout");
     }
     @Bean
