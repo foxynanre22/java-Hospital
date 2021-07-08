@@ -1,14 +1,12 @@
 package pl.wsiz.iid6.gr2.patientservice.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
-@Entity(name = "patient")
-public class PatientEntity {
+@Entity
+@Table(name = "Pacjent")
+public class Pacjent {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String firstName;
     private String lastName;
@@ -35,16 +33,16 @@ public class PatientEntity {
         return lastName;
     }
 
-    protected PatientEntity() {
+    protected Pacjent() {
     }
 
-    public PatientEntity(String firstName, String lastName, String pesel) {
+    public Pacjent(String firstName, String lastName, String pesel) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.pesel = pesel;
     }
 
-    public PatientEntity(String firstName, String lastName, String pesel, String NrUbezpieczenia) {
+    public Pacjent(String firstName, String lastName, String pesel, String NrUbezpieczenia) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.pesel = pesel;

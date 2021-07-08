@@ -3,11 +3,11 @@ package pl.wsiz.iid6.gr2.patientservice.dto;
 import java.time.LocalDate;
 import java.util.List;
 
-public class Recepta {
+public class ReceptaDTO {
     private int ID;
     private String peselPacjenta;
     private LocalDate dataWaznosci;
-    private List<Lek> listaLekow;
+    private List<LekDTO> listaLekow;
 
     public int getID() {
         return ID;
@@ -21,18 +21,18 @@ public class Recepta {
         return dataWaznosci;
     }
 
-    public List<Lek> getListaLekow() {
+    public List<LekDTO> getListaLekow() {
         return listaLekow;
     }
 
-    public Recepta(int ID, String peselPacjenta, LocalDate dataWaznosci, List<Lek> listaLekow) {
+    public ReceptaDTO(int ID, String peselPacjenta, LocalDate dataWaznosci, List<LekDTO> listaLekow) {
         this.ID = ID;
         this.peselPacjenta = peselPacjenta;
         this.dataWaznosci = dataWaznosci;
         this.listaLekow = listaLekow;
     }
 
-    public List<Lek> obtainListaLekow() {
+    public List<LekDTO> obtainListaLekow() {
         if(dataWaznosci.getMonthValue()+dataWaznosci.getDayOfMonth() <= LocalDate.now().getMonthValue()+LocalDate.now().getDayOfMonth()){
             return null;
         }else {

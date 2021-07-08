@@ -1,12 +1,12 @@
 package pl.wsiz.iid6.gr2.patientservice.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
-@Entity(name = "lek")
-public class LekEntity {
+@Entity
+@Table(name = "Lek")
+public class Lek {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -27,16 +27,15 @@ public class LekEntity {
         return id;
     }
 
-
-    protected LekEntity() {
+    protected Lek() {
     }
 
-    public LekEntity(String name, String producent) {
+    public Lek(String name, String producent) {
         this.name = name;
         this.producent = producent;
     }
 
-    public LekEntity(String name, String producent, Integer ilosc) {
+    public Lek(String name, String producent, Integer ilosc) {
         this.name = name;
         this.producent = producent;
         this.ilosc = ilosc;

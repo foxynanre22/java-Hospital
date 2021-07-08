@@ -1,6 +1,6 @@
 package pl.wsiz.iid6.gr2.patientservice.dto;
 
-public class Lek {
+public class LekDTO {
     private String nazwa;
     private String producent;
 
@@ -18,17 +18,17 @@ public class Lek {
         return producent;
     }
 
-    public Lek(String nazwa, String producent) {
+    public LekDTO(String nazwa, String producent) {
         this.nazwa = nazwa;
         this.producent = producent;
     }
-    public Lek(String nazwa, String producent, Integer ilosc) {
+    public LekDTO(String nazwa, String producent, Integer ilosc) {
         this.nazwa = nazwa;
         this.producent = producent;
         this.ilosc = ilosc;
     }
 
-    public Lek(String nazwa) {
+    public LekDTO(String nazwa) {
         this.nazwa = nazwa;
     }
 }

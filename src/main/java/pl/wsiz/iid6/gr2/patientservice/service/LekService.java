@@ -2,8 +2,8 @@ package pl.wsiz.iid6.gr2.patientservice.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pl.wsiz.iid6.gr2.patientservice.dto.Lek;
-import pl.wsiz.iid6.gr2.patientservice.entity.LekEntity;
+import pl.wsiz.iid6.gr2.patientservice.dto.LekDTO;
+import pl.wsiz.iid6.gr2.patientservice.entity.Lek;
 import pl.wsiz.iid6.gr2.patientservice.jpa.LekRepository;
 
 import java.util.List;
@@ -14,23 +14,23 @@ public class LekService {
     @Autowired
     private LekRepository lekRepository;
 
-    public Lek findById(Long Id){
-        Optional<LekEntity> res = lekRepository.findById(Id);
+    public LekDTO findById(Long Id){
+        Optional<Lek> res = lekRepository.findById(Id);
         if(res.isPresent()){
-            LekEntity lek = res.get();
-            return new Lek(lek.getName(), lek.getProducent(), lek.getIlosc());
+            Lek lek = res.get();
+            return new LekDTO(lek.getName(), lek.getProducent(), lek.getIlosc());
         }
-        return new Lek("None", "None");
+        return new LekDTO("None", "None");
     }
 
     public String findByName(String name){
-        List<LekEntity> res = lekRepository.findAllByName(name);
+        List<Lek> res = lekRepository.findAllByName(name);
 
         return res.toString();
     }
 
-    public List<LekEntity> findAll() {
-        List<LekEntity> rs = lekRepository.findAll();
+    public List<Lek> findAll() {
+        List<Lek> rs = lekRepository.findAll();
         return rs;
     }
 
